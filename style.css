@@ -79,8 +79,8 @@ body {
   letter-spacing: 1px;
   border-radius: 4px;
   font-weight: bold;
-  border-color: black;
-  background-color: black;
+  border-color: rgb(24, 146, 177);
+  background-color: rgb(24, 146, 177);
   outline: none;
 }
 .model-image-label:hover {
@@ -102,13 +102,13 @@ body {
   letter-spacing: 1px;
   border-radius: 4px;
   font-weight: bold;
-  border-color: rgb(6, 135, 240);
-  background-color: rgb(6, 135, 240);
+  border-color: rgb(98, 218, 62);
+  background-color: rgb(98, 218, 62);
   outline: none;
 }
 .model-execute:hover {
-  border-color: rgb(148, 218, 250);
-  background-color: rgb(148, 218, 250);
+  border-color: rgb(147, 224, 124);
+  background-color: rgb(147, 224, 124);
   color: rgb(111, 75, 177);
   cursor: pointer;
 }
@@ -119,13 +119,21 @@ body {
 /*AFTER 750 PX CHART SHOULD GO DOWN*/
 .cap {
   margin-top: 20px;
+  max-width: 100%;
+
   /* border: 1px solid black; */
-  display: flex;
+  /* display: flex; */
   /* max-height: 60vh; */
-  justify-content: space-evenly;
-  align-items: center;
-  flex-wrap: wrap;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* flex-wrap: wrap; */
   /* position: absolute; */
+}
+.cap > * {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+  /* border: 3px solid green; */
 }
 /* .cap > * {
   /* max-height: 224px; 

@@ -17,8 +17,6 @@
         <h2 class="heading-text subheading"> School Of Computing</h2>
         <div class="model">
           <button class="model-load" onclick="loadThermalModel()">Load Thermal Model</button>
-          <button class="model-load" onclick="loadDigitalModel()">Load Digital Model</button>
-
           <label for="model-image" class="model-image-label">Upload Image</label>
           <input class="model-image" id="model-image" type="file" accept="image/bmp" name="filename"  onchange="loadImage(this);" >
           <button class="model-execute" onclick="execute()">Predict</button>
@@ -26,8 +24,11 @@
         </div>
       </div>
       <div class="cap">
-        <div class="cap-chart">
+        <!-- <div class="cap-chart">
           <canvas id="myChart" ></canvas>
+        </div> -->
+        <div class="result">
+          <h2 class="result-text"></h2>
         </div>
         <div class="cap-img" >
           <canvas id="canvasimage"width="224" height="224" ></canvas>
@@ -63,7 +64,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.1.2"></script>
 
     <script src="app.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
-    <script src="chart.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script> -->
+    <!-- <script src="chart.js"></script> -->
   </body>
 </html>

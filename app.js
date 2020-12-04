@@ -1,7 +1,7 @@
 
 
 const thermalModelURL = 'thermal_model/model.json'
-const digitalModelURL = 'digital_model/model.json'
+// const digitalModelURL = 'digital_model/model.json'
 
 
 const imageSize = 224;
@@ -14,6 +14,7 @@ let colorMap
 /**
  * load the TensorFlow.js model
  */
+let resultText = document.querySelector('.result-text');
 window.loadThermalModel = async function () {
 
 
@@ -25,20 +26,21 @@ window.loadThermalModel = async function () {
 
   
 }
-window.loadDigitalModel = async function () {
+// window.loadDigitalModel = async function () {
 
 
-  preloader.style.display = 'block';
-  // https://js.tensorflow.org/api/1.1.2/#loadGraphModel
-  model = await tf.loadLayersModel(thermalModelURL)
-  model.summary();
-  preloader.style.display = 'none';
+//   preloader.style.display = 'block';
+//   // https://js.tensorflow.org/api/1.1.2/#loadGraphModel
+//   model = await tf.loadLayersModel(thermalModelURL)
+//   model.summary();
+//   preloader.style.display = 'none';
 
   
-}
+// }
 
 
 window.loadImage = function (input) {
+  resultText.style.display='none';
   preloader.style.display = 'block';
   if (input.files && input.files[0]) {
    
@@ -104,12 +106,20 @@ window.runModel = async function () {
     // const output = model.predict(img)
     // const output =await model.predict([img.reshape([1,28,28,1])]).print();
 
-    const output = await model.predict([img.reshape([1,224,224,3])]).array().then(op=> {setTimeout(()=>preloader.style.display = 'none',1000);/*console.log(op+"  hurray!!");*/generateChart(op[0])})
+    const output = await model.predict([img.reshape([1,224,224,3])]).array().then(op=> {
+      setTimeout(()=>preloader.style.display = 'none',1000);
+      // let results=[...op[0]];
+      console.log(op[0][0].toFixed(4),op[0][1].toFixed(4))
+
+      resultText.innerText =  op[0][0]>op[0][1] ? `There is a Crack !` : `There is NO Crack !`;
+      
+      resultText.style.display='block';
+  })
     // model.predict([tf.tensor(input).reshape([1, 28, 28, 1])]).array()
 
    
 
-    console.log('model.predict (output):', output)
+    // console.log('model.predict (output):', output)
     // setTimeout(preLoaderHandler,1000);
    
   } else {
