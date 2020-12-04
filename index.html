@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Crack Detection</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/title-sastra.png" type = "image/x-icon">
+  </head>
+  <body>
+    <div id="loader"></div>
+    <div class='content-body'>
+      <div class="heading">
+        <img class="heading-logo" src="assets/sastra.png" alt="sastra logo">
+        <h1 class="heading-text">TEMPLE STRUCTURE CRACK DETECTION USING ML AND COMPUTER VISION</h1>
+      </div>
+      <div class="content">
+        <h2 class="heading-text subheading"> School Of Computing</h2>
+        <div class="model">
+          <button class="model-load" onclick="loadThermalModel()">Load Thermal Model</button>
+          <button class="model-load" onclick="loadDigitalModel()">Load Digital Model</button>
+
+          <label for="model-image" class="model-image-label">Upload Image</label>
+          <input class="model-image" id="model-image" type="file" accept="image/bmp" name="filename"  onchange="loadImage(this);" >
+          <button class="model-execute" onclick="execute()">Predict</button>
+          <!-- accept="image/jpeg, image/png" -->
+        </div>
+      </div>
+      <div class="cap">
+        <div class="cap-chart">
+          <canvas id="myChart" ></canvas>
+        </div>
+        <div class="cap-img" >
+          <canvas id="canvasimage"width="224" height="224" ></canvas>
+          <canvas id="canvassegments" width="224" height="224" ></canvas>
+        </div>
+      </div>
+    </div>
+    <footer>
+     
+    </footer>
+    <!-- <div style="padding: 10px;">
+        
+        
+       
+        
+      </div> -->
+      
+      <!-- <div style="padding: 10px;">
+        <div id="capimg" style="position:relative;display:inline-block;min-width:600px;vertical-align:top;">
+          <canvas id="canvasimage" style="z-index:1; position:absolute; left:0px; top:0px;"></canvas>
+          <canvas id="canvassegments" style="z-index:2; position:absolute; left:0px; top:0px;"></canvas>
+        </div>
+        <div id="message" style="position:relative;display:inline-block;"></div>
+      </div>
+    </div> -->
+    <script>
+      var preloader = document.getElementById('loader');
+      function preLoaderHandler(){
+          preloader.style.display = 'none';
+      }
+      setTimeout(preLoaderHandler,1000);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.1.2"></script>
+
+    <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <script src="chart.js"></script>
+  </body>
+</html>

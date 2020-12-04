@@ -1,0 +1,18 @@
+To convert existing working model to tfjs model :-
+//After trainining and testing your model
+//Note: model is <model name>
+1) model.save("model.h5")
+2) !pip install tensorflowjs
+3) !tensorflowjs_converter --input_format keras '/content/model.h5' '/content/model'
+
+After doing this a content folder will be created, and model.json will be generated.
+
+
+IMPORTANT POINTS:-
+* To run the application, just open index.html and it will open
+* It is recommended to load the webpage everytime you want to insert a new image for prediction
+* The trained model for digital image is not very accurate. Better use some other model.
+
+
+Conclusion :-
+* Using a single model for both thermal and digital image can help in improved accuracy.
